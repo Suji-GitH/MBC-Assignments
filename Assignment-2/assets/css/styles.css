@@ -1,0 +1,105 @@
+/* --- STYLES FOR ALL PAGES --- */
+body {
+  /* Typography */
+  font-family: 'Poiret One', cursive;
+
+  background: url(../img/rbw_cable.jpg);
+  background-size: 100%;
+
+}
+
+/* NAV START */
+#logo {
+font-family: 'Lobster', cursive;
+
+/* Typography */
+font-size: 24px;
+color: orange;
+}
+
+/* override bootstrap hover color and border */
+#navbarTogglerDemo01 a:hover {
+  color: orange;
+}
+
+/* Header and General Typography  */
+.page-header h1, p {
+  font-weight: bold;
+}
+
+/* Container CSS */
+.container {
+  margin-top: 50px;
+  margin-bottom: 150px;
+  padding: 50px;
+  background: rgba(116, 115, 113, 0.438);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, .5);
+}
+
+/* BEGIN FOOTER */
+footer {
+  /* Positioning */
+  position: fixed;
+  bottom: 0;
+  left: 0;
+
+  /* Footer Size */
+  width: 100vw;
+  height: 40px;
+
+  /* Visual */
+  background-color: #343a40;
+  color: #fff;
+  text-align: center;
+}
+
+/* Footer content padding */
+footer p{
+  padding: 10px;
+}
+
+/* END FOOTER */
+
+
+/* --- PAGE-SPECIFIC STYLES --- */
+
+/* PORTFOLIO PAGE */
+
+/* Card Heading color */
+.card-body .card-title {
+  color: orange;
+  font-weight: bold;
+}
+
+.card-body:hover{
+  background-color: #343a40;
+  color: #fff;
+}
+
+/* CONTACT FORM PAGE  */
+
+/* Contact Field links */
+.container a{
+  font-weight: bold;
+  color: black;
+}
+
+/* Contact Field box */
+.container .form-control:focus {
+  background-color: orange;
+  color: black;
+  font-weight: 600;
+}
+
+/* Button Position */
+.container .btn{
+  float: right;
+}
+
+/* Button effect */
+.container .btn:hover {
+  opacity: .7;
+  color: orange;
+}
+
+

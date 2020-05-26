@@ -1,0 +1,157 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+/* font family, background in body */
+body {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background-color: #d9dcd6;
+}
+
+/* Break line color */
+hr {
+    border: 1px solid #fde67d;
+}
+
+/* Logo text and banner specification */
+header {
+    padding: 10px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background-color: #2a607c;
+    color: #ffffff;
+}
+
+/* Horiseon logo */
+header h1 {
+    display: inline-block;
+    font-size: 48px;
+}
+
+/* Colour for "seo" part of the logo */
+header h1 #seo {
+    color: #fde67d;
+}
+
+/* Navigation bar specification */
+header nav {
+    text-align: right;
+    font-size: 20px;
+    background-color: #2a607c;
+}
+
+/* Navigation link specification */
+header nav li {
+    display: inline-block;
+    padding: 0px 0px 0px 20px;
+}
+
+/* Link text colour */
+header nav a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+/* Home image marketing boardroom specification */
+main .home-img {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+/* Benefits specification */
+.benefits {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    clear: both;
+    text-align: center;
+}
+
+/* benefits header specification */
+.benefits h3 {
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+/* benefits img specification */
+.benefits img {
+    display: block;
+    margin: auto;
+    width: 30%;
+} 
+
+/* Padding for benefits paragraph */
+.benefits p {
+    padding: 0% 25%;
+}
+
+/* content overall specification */
+.content {
+    position: relative;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Content sub section specification */
+.content .SEO, 
+.ORM, 
+.SMM {
+position: relative;
+max-width: auto;
+margin: 10px;
+padding: 15px;
+display: flex;
+color: white;
+background-color: #2a607c;  
+}
+
+/* Content image size */
+.content img{
+    max-width: 25%;
+    flex: 0 0 150px;
+}
+
+/* Content sub section minus img margin */
+.content #search-engine-optimization, 
+#online-reputation-management, 
+#social-media-marketing {
+    margin-left: 20px;
+} 
+
+/* Footer specification */
+footer {
+    padding: 30px;
+    clear: both;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-align: center;
+}
+
+/* Footer header size */
+footer h2 {
+    font-size: 20px;
+}
+
+/* Changes for when screen resolution changes */
+@media screen and (max-width: 768px){
+    header nav li {
+        display: block;
+        padding: 0px 0px 5px 20px;
+    }
+    
+    .benefits {
+        flex-direction: column;
+    }
+
+    .content .SEO,
+    .ORM,
+    .SMM {
+        flex-direction: column;
+
+    }
+
+    .content img {
+        max-width: 100%;
+        margin: 10px;
+    }
+}

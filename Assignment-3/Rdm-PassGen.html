@@ -1,11 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Random Password Generator</title>
+
+    <!-- Bootstrap CSS  -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+     <!-- Own CSS  -->
+     <link rel="stylesheet" href="/Assignment-3/assets/css/styles.css">
+
+
 </head>
+
 <body>
-    
+    <!-- Container for main image -->
+    <section class="container">
+        <div class="row">
+                <img src="/Assignment-3/assets/img/MorpheusChair.png" class="rounded mx-auto d-block"
+                    alt="Morpheus Options">
+        </div>
+    </section>
+    <!-- container for text box and buttons -->
+    <section class="container">
+        <div class="row">
+            <div class="row">
+                <!-- Text box to display generated pwd -->
+                <div class="col-sm-12">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Password</span>
+                        </div>
+                        <textarea class="form-control" aria-label="With textarea"></textarea>
+                    </div>
+                </div>
+
+                <!-- Buttons -->
+                <div class="row justify-content-between">
+                    <!-- Restart button -->
+                    <div class="col-sm-3 col-lg-5">
+                        <button type="button" class="btn btn-danger">Restart</button>
+                    </div>
+                    <!-- Generate button -->
+                    <div class="col-sm-3 col-lg-5">
+                        <button type="button" class="btn btn-primary">Generate</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- link to own javascript -->
+    <script type="text/javascript" src="/Assignment-3/assets/js/script.js"></script>
+
 </body>
+
 </html>

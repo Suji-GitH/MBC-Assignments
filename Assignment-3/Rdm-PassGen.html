@@ -6,53 +6,61 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Random Password Generator</title>
 
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
     <!-- Bootstrap CSS  -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-
-     <!-- Own CSS  -->
-     <link rel="stylesheet" href="/Assignment-3/assets/css/styles.css">
-
-
+    <!-- Own CSS  -->
+    <link rel="stylesheet" href="/Assignment-3/assets/css/styles.css">
 </head>
 
 <body>
-    <!-- Container for main image -->
-    <section class="container">
-        <div class="row">
-                <img src="/Assignment-3/assets/img/MorpheusChair.png" class="rounded mx-auto d-block"
-                    alt="Morpheus Options">
-        </div>
-    </section>
-    <!-- container for text box and buttons -->
-    <section class="container">
-        <div class="row">
-            <div class="row">
-                <!-- Text box to display generated pwd -->
-                <div class="col-sm-12">
-                    <div class="input-group">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text">Password</span>
-                        </div>
-                        <textarea class="form-control" aria-label="With textarea"></textarea>
-                    </div>
-                </div>
 
-                <!-- Buttons -->
-                <div class="row justify-content-between">
-                    <!-- Restart button -->
-                    <div class="col-sm-3 col-lg-5">
-                        <button type="button" class="btn btn-danger">Restart</button>
+    <!--Matrix background -->
+    <canvas id="c"></canvas>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-sm-12 mx-auto">
+                <div class="content">
+                    <!-- Textarea for generated password -->
+                    <div class="input-group mb-3">
+                        <textarea class="form-control" aria-label="With textarea"
+                            placeholder="Use the slider to select how many characters you like your password to be and select the blue or red pill to talk to Morpheus" readonly="true"></textarea>
+                        <div class="input-group-append">
+                            <button class="btn btn-outline-secondary" type="button" id="copyBtn">Copy</button>
+                        </div>
                     </div>
-                    <!-- Generate button -->
-                    <div class="col-sm-3 col-lg-5">
-                        <button type="button" class="btn btn-primary">Generate</button>
+
+                    <!-- Morpheus image -->
+                    <img src="/Assignment-3/assets/img/MorpheusChair.png" class="morpheus"
+                        alt="Morpheus Options">
+
+                    <!-- Slider -->
+                    <input type="range" min="8" max="128" value="8" class="slider" id="myRange">
+                    <p>Value: <span id="demo"></span></p>
+
+                    <!-- buttons -->
+                    <div class="row buttons">
+                        <div class="col">
+                            <button type="button" id="bBtn">Generate</button>
+                        </div>
+
+                        <div class="col">
+                            <button type="button" id="pBtn">Generate</button>
+                        </div>
+
+                        <div class="col">
+                            <button type="button" id="rBtn">Generate</button>
+                        </div>
                     </div>
+
                 </div>
             </div>
         </div>
-    </section>
+    </div>
 
-    <!-- link to own javascript -->
+    <!--Link to javascript -->
     <script type="text/javascript" src="/Assignment-3/assets/js/script.js"></script>
 
 </body>

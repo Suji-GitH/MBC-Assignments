@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <title>Quiz Game</title>
+
+  <!-- jQuery Link -->
+  <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+  <!-- Bootstrap Style Link -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <!-- Google Font Link -->
+  <link href="https://fonts.googleapis.com/css2?family=Manrope&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- link to high scores page -->
+  <div class="highScores">
+    <a href="HighScore.html">View HighScores</a>
+  </div>
+
+  <!-- Display time left -->
+  <div class="countDown">
+    <div id="timer">timer here</div>
+  </div>
+
+  <!-- Quiz instructions and start button -->
+  <div class="container">
+
+    <h1>Coding Quiz Challenge</h1>
+
+    <p>You have 75 seconds to answer 5 questions, every questions you get incorrect will reduce the time by 10 sec!!!
+      <br> Final score is determined by how many seconds you have left on the clock, good luck!!</p>
+
+    <button id="startQuiz" class="btn btn-info">Start Quiz</button>
+
+    <!-- hidden div to display quiz -->
+
+    <div id="questions" class="hide">
+      <h2 id="quizHeading"></h2>
+      <div id="multiChoice" class="choices"></div>
+    </div>
+
+    <!-- GameOver Screen -->
+
+    <div id="gameOver" class="hide">
+      <h1>Game Over</h>
+        <p>Your final score is
+          <span id="userScore"></span>.
+        </p>
+
+        <div class="input-group">
+          <input type="text" max="2" class="form-control" placeholder="Enter your Initials">
+          <div class="input-group-append">
+            <button class="btn btn-info" type="button" id="button-addon">Submit</button>
+          </div>
+        </div>
+
+    </div>
+
+  </div>
+
+  <!-- javaScript for Question and Answers -->
+  <script src="./assets/javascript/QnA.js"></script>
+
+  <!-- javaScript for Logic -->
+  <script src="./assets/javascript/script.js"></script>
+
+</body>
+
+</html>

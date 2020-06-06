@@ -1,7 +1,7 @@
 //Logic for Quiz Game
 
 //Variables
-var time = 61;
+var time = 60;
 var timeLeft;
 var questionsList = 0;
 
@@ -24,12 +24,12 @@ $("#startQuiz").on("click", function () {
 
 //Function for time ticking down
 function timeLapse() {
-    time--;
     $("#timer").text(time);
-
+    time--;
+    
     if (time <= 0) {
         finQuiz();
-    }
+    } 
 };
 
 //Display Questions
@@ -125,8 +125,8 @@ function finQuiz() {
 
 //Saving User High Score
 function storeHS() {
-    var userInitials = $("#initials").value;
-
+    var userInitials = $("#initials").val();
+  
     //block null input for initials
     if (userInitials !== "") {
         var userHS = JSON.parse(window.localStorage.getItem("highScoreList")) || [];

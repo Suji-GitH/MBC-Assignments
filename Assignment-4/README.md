@@ -6,7 +6,7 @@
 
 ###### [Repository Link](https://github.com/Suji-GitH/MBC-Assignments/tree/master/Assignment-4)
 
-## Table of Content
+## TableofContent
 - [Overview](#Overview)
 - [Acceptance Criteria](#AcceptanceCriteria)
 - [Pseudo Code](#PseudoCode)
@@ -16,7 +16,6 @@
     - [UI/UX Consideration](#UI/UXConsideration)
     - [App Screenshots](#AppScreenshots)
 - [Credits](#Credits)
-- [Testing](#Testing)
 
 ## Overview
 
@@ -25,7 +24,7 @@ I WANT to take a timed quiz on JavaScript fundamentals that stores high scores
 SO THAT I can gauge my progress compared to my peers
 
 
-## Acceptance Criteria
+## AcceptanceCriteria
 
 GIVEN I am taking a code quiz <br>
 WHEN I click the start button <br>
@@ -39,15 +38,15 @@ WHEN the game is over <br>
 THEN I can save my initials and score <br>
 
 
-## Pseudo Code
+## PseudoCode
 
-###### High Score Page
+###### HighScorePage
 
 Html
 1. Title High Scores
 2. Button for back to Home Page
 3. Button for Clear High Scores
-4. Empty ol tag to hold scores
+4. Empty Ordered list tag to hold scores
 
 CSS
 1. background for the page 
@@ -59,7 +58,7 @@ JavaScript
 2. Clear HighScore function on "click"
 3. get local storage for initials
 
-###### Quiz Page 
+###### QuizPage 
 
 Html
 
@@ -83,7 +82,7 @@ Quiz End Screen
 
 CSS
 1. background for the page 
-2. 5 panels of coloured vh div boxes 
+2. 5 panels of coloured view port height div boxes 
 3. Buttons for multiple choice 
 4. Quiz game appropriate font
 
@@ -102,9 +101,9 @@ JavaScript
 12. set local storage for high scores initial 
 13. Don't allow null value for submit button 
 
-## UI/UX & Application Screens
+## UI/UX&Application Screens
 
-###### UI/UX Consideration
+###### UI/UXConsideration
 
 Application is kept simple with minimal wording, Font that's easier to read and less visual distractions around the screen so that user can focus on the content and questions & multiple choices displayed. 
 
@@ -112,7 +111,7 @@ Buttons are all kept uniform colours and for multiple choice questions, red/gree
 
 In addition to displaying the count down time, the light blue opaque coloured boxes disappear towards to the middle as the time go down towards 0 so that they be able to still see in peripheral vision rough estimate of time left. 
 
-###### App Screenshots
+###### AppScreenshots
 
 Quiz Game Landing Page
 
@@ -134,22 +133,3 @@ User High Scores Page
     - jQuery
     - W3school
     
-## Testing
-
-No coding test was conducted, only front-end functionality tested.
-
-As User when I land on the Quiz page 
-
-
-
-GIVEN I am taking a code quiz
-WHEN I click the start button
-THEN a timer starts and I am presented with a question
-WHEN I answer a question
-THEN I am presented with another question
-WHEN I answer a question incorrectly
-THEN time is subtracted from the clock
-WHEN all questions are answered or the timer reaches 0
-THEN the game is over
-WHEN the game is over
-THEN I can save my initials and score

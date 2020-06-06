@@ -6,7 +6,7 @@
 
 ###### [Repository Link](https://github.com/Suji-GitH/MBC-Assignments/tree/master/Assignment-4)
 
-## TableofContent
+## Content
 - [Overview](#Overview)
 - [Acceptance Criteria](#AcceptanceCriteria)
 - [Pseudo Code](#PseudoCode)

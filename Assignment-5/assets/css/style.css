@@ -1,71 +1,49 @@
 body {
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Bellota', cursive;
   font-size: 16px;
-  line-height: 1;
-}
-
-textarea{
-  background: transparent;
-  border: none;
-  resize: none;
-  color: #000000;
-  border-left: 1px solid black;
-  padding: 10px;
+  background: url(../img/botanical-green.jpg);
+  background-size: cover;
+  height: 100%;
+  
 }
 
 .jumbotron {
-  text-align: center;
+  /* text-align: center; */
   background-color: transparent;
-  color: black;
-  border-radius: 0;
-  border-bottom: 10px solid black;
+  color: tan;
+  border-bottom:  2px solid;
+  border-color: grey;
+
 }
 
-.description{
-  white-space: pre-wrap;
+/* Input-group time blocks */
+.input-group {
+  margin-bottom: 10px;
 }
 
-.time-block{
-  text-align: center;
-  border-radius: 15px;
+.input-group-text {
+  background-color: black;
+  color: whitesmoke;
 }
 
-.row {
-  white-space: pre-wrap;
-  height: 80px;
-  border-top: 1px solid white;;
+.paddingFix {
+  padding-right: 20px;
 }
 
-.hour {
-  background-color: #ffffff;
-  color: #000000;
-  border-top: 1px dashed #000000;
+.form-control {
+  cursor: pointer;
 }
 
-.past {
-  background-color: #d3d3d3;
-  color: white;
+/* modal style */
+.modal-content {
+  background-color: lightgray;
 }
 
-.present {
-  background-color: #ff6961;
-  color: white;
+#taskInput {
+  border-radius: 5px;
+  display: inherit;
+  background-color: dimgray;
+  color: tan;
+  width: 100%;
 }
 
-.future {
-  background-color: #77dd77;
-  color: white;
-}
-
-.saveBtn {
-  border-left: 1px solid black;
-  border-top-right-radius: 15px;
-  border-bottom-right-radius: 15px;
-  background-color: #06AED5;
-  color: white;
-}
-
-.saveBtn i:hover {
-  font-size: 20px;
-  transition: all .3s ease-in-out;
-}

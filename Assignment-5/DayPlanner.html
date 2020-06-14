@@ -22,7 +22,7 @@
 </head>
 
 <body>
-  <!-- header with title, app description, current day, date and year, and dark/light mode toggle -->
+  <!-- header with title, app description, current day, date and year -->
   <header class="jumbotron">
     <h1 class="display-3">Work Day Scheduler</h1>
     <p id="currentDay" class="lead"></p>
@@ -36,7 +36,7 @@
       <div class="input-group-prepend">
         <span class="input-group-text paddingFix">9am</span>
       </div>
-      <textarea class="form-control" aria-label="With textarea" data-columns="0"></textarea>
+      <textarea class="form-control" aria-label="With textarea" data-columns="0" data-toggle="tooltip" title="Click to Add Task"></textarea>
     </div>
 
     <!-- 10am -->
@@ -44,7 +44,7 @@
       <div class="input-group-prepend">
         <span class="input-group-text">10am</span>
       </div>
-      <textarea class="form-control" aria-label="With textarea" data-columns="1"></textarea>
+      <textarea class="form-control" aria-label="With textarea" data-columns="1" data-toggle="tooltip" title="Click to Add Task"></textarea>
     </div>
 
     <!-- 11am -->
@@ -52,7 +52,7 @@
       <div class="input-group-prepend">
         <span class="input-group-text">11am</span>
       </div>
-      <textarea class="form-control" aria-label="With textarea" data-columns="2"></textarea>
+      <textarea class="form-control" aria-label="With textarea" data-columns="2" data-toggle="tooltip" title="Click to Add Task"></textarea>
     </div>
 
     <!-- 12pm -->
@@ -60,7 +60,7 @@
       <div class="input-group-prepend">
         <span class="input-group-text">12pm</span>
       </div>
-      <textarea class="form-control" aria-label="With textarea" data-columns="3"></textarea>
+      <textarea class="form-control" aria-label="With textarea" data-columns="3" data-toggle="tooltip" title="Click to Add Task"></textarea>
     </div>
 
     <!-- 1pm -->
@@ -68,7 +68,7 @@
       <div class="input-group-prepend">
         <span class="input-group-text paddingFix">1pm</span>
       </div>
-      <textarea class="form-control" aria-label="With textarea" data-columns="4"></textarea>
+      <textarea class="form-control" aria-label="With textarea" data-columns="4" data-toggle="tooltip" title="Click to Add Task"></textarea>
     </div>
 
     <!-- 2pm -->
@@ -76,7 +76,7 @@
       <div class="input-group-prepend">
         <span class="input-group-text paddingFix">2pm</span>
       </div>
-      <textarea class="form-control" aria-label="With textarea" data-columns="5"></textarea>
+      <textarea class="form-control" aria-label="With textarea" data-columns="5" data-toggle="tooltip" title="Click to Add Task"></textarea>
     </div>
 
     <!-- 3pm -->
@@ -84,7 +84,7 @@
       <div class="input-group-prepend">
         <span class="input-group-text paddingFix">3pm</span>
       </div>
-      <textarea class="form-control" aria-label="With textarea" data-columns="6"></textarea>
+      <textarea class="form-control" aria-label="With textarea" data-columns="6" data-toggle="tooltip" title="Click to Add Task"></textarea>
     </div>
 
     <!-- 4pm -->
@@ -92,7 +92,7 @@
       <div class="input-group-prepend">
         <span class="input-group-text paddingFix">4pm</span>
       </div>
-      <textarea class="form-control" aria-label="With textarea" data-columns="7"></textarea>
+      <textarea class="form-control" aria-label="With textarea" data-columns="7" data-toggle="tooltip" title="Click to Add Task"></textarea>
     </div>
 
     <!-- 5pm -->
@@ -100,7 +100,7 @@
       <div class="input-group-prepend">
         <span class="input-group-text paddingFix">5pm</span>
       </div>
-      <textarea class="form-control" aria-label="With textarea" data-columns="8"></textarea>
+      <textarea class="form-control" aria-label="With textarea" data-columns="8" data-toggle="tooltip" title="Click to Add Task"></textarea>
     </div>
 
   </div>
@@ -111,8 +111,7 @@
       <div class="modal-content">
         <div class="modal-body">
           <div class="form-group">
-            <label for="message-text" class="col-form-label">Enter Task:<span id="blockId"
-                style="color:deeppink" hidden></span></label>
+            <label for="message-text" class="col-form-label">Enter Task:<span id="blockId" hidden></span></label>
             <textarea id="taskInput"></textarea>
           </div>
         </div>
@@ -130,107 +129,8 @@
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
   <!-- Bootstrap script link -->
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-
-
-  <script>
-
-    //moment object
-    var moment = moment();
-
-    //Display day, month, date, year
-    $("#headerDate").html((moment.format("dddd," + " MMMM Do YYYY")));
-
-    //Get tasks from local storage
-    var getUserTasks = JSON.parse(localStorage.getItem("userTasks"));
-
-    console.log(getUserTasks);
-
-    // If local storage is null create time block object
-    if (getUserTasks !== null) {
-      timeBlockTasks = getUserTasks;
-    } else {
-
-      var timeBlockTasks = {
-        timeBlocks: new Array(9)
-      };
-
-    };
-
-    //start time 9am
-    var startTime = 9;
-    //Calculate current time to the hour
-    var currentTime = moment.hour();
-    //duration from start time to current time
-    var timeDiff = currentTime - startTime;
-
-    //Clear text Area if past 6pm
-    // if (timeDiff === 9) {
-    //   localStorage.clear()
-    // }
-
-    // past, present, future color coordination
-    $(".form-control").each(function () {
-
-      if (timeDiff === ($(this).data("columns"))) {
-        $(this).css("background-color", "palevioletred");
-      } else if (($(this).data("columns")) < timeDiff) {
-        $(this).css("background-color", "currentcolor");
-      } else if (($(this).data("columns")) > timeDiff) {
-        $(this).css("background-color", "darkseagreen");
-      }
-
-    });
-
-    //Event listener for text area to display Modal
-    $(".form-control").on("click", function () {
-      $('#myModal').modal('show');
-
-      //get block column value
-      var $blockId = $(".form-control").index(this);
-
-      $("#blockId").text($blockId);
-
-    });
-
-
-    //Save button function 
-    $("#saveButton").on("click", function () {
-
-      var $taskInput = $("#taskInput");
-
-      var $blockId = $("#blockId").text();
-
-      //Access Array for time block user input
-      var timeBlockArr = timeBlockTasks.timeBlocks;
-
-      for (var i = 0; i < timeBlockArr.length; i++) {
-
-        if (i == $blockId) {
-          timeBlockArr[i] = $taskInput.val().trim();
-
-          console.log(timeBlockArr);
-          break;
-        }
-      }
-
-      //stringify user input
-      var timeBlockTasks_serialized = JSON.stringify(timeBlockTasks);
-
-      //save to local storage
-      localStorage.setItem("userTasks", timeBlockTasks_serialized);
-
-      //get user input from local storage and covert back to string
-      // var timeBlockTasks_deserialized = JSON.parse(localStorage.getItem("userTasks"));
-
-      // //clear text
-      $taskInput.val("");
-
-      $('#myModal').modal('hide');
-
-    });
-
-
-  </script>
+  <!-- Own js script link-->
+  <script src="../Assignment-5/assets/javascript/script.js"></script>
 
 </body>
 

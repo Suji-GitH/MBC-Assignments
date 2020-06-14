@@ -2,7 +2,7 @@
 
 ## Application & Repository Link
 
-###### [Application Link](https://suji-gith.github.io/MBC-Assignments/Assignment-5/dayPlanner.html)
+###### [Application Link](https://suji-gith.github.io/MBC-Assignments/Assignment-5/DayPlanner.html)
 
 ###### [Repository Link](https://github.com/Suji-GitH/MBC-Assignments/tree/master/Assignment-5)
 
@@ -47,11 +47,11 @@ Main UI/UX consideration applied is instead of having multiple save button for e
 ###### AppScreenshots
 
 Calendar Landing Page
-<img src = "../Assignment-5/assets/img/Screenshots/Calendar-Landing-Page.jpg">
+<img src = "../Assignment-5/assets/img/ScreenShots/Calendar-Landing-Page.jpg">
 Colour coordination for Past(), Present(), Future()
-<img src = "../Assignment-5/assets/img/Screenshots/Past-Present-Future.jpg">
+<img src = "../Assignment-5/assets/img/ScreenShots/Past-Present-Future.jpg">
 Saving times block item
-<img src = "../Assignment-5/assets/img/Screenshots/Modal-Popup.jpg">
+<img src = "../Assignment-5/assets/img/ScreenShots/Modal-Popup.jpg">
 
 ## Credits
 

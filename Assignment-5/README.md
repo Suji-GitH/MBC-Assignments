@@ -9,7 +9,6 @@
 ## Content
 - [Overview](#Overview)
 - [Acceptance Criteria](#AcceptanceCriteria)
-- [Pseudo Code](#PseudoCode)
 - [UI/UX & Application Screens](#UI/UX&ApplicationScreens)
     - [UI/UX Consideration](#UI/UXConsideration)
     - [App Screenshots](#AppScreenshots)

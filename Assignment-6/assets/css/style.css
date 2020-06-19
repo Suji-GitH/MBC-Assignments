@@ -1,49 +1,95 @@
+/* Background */
 body {
-  font-family: 'Bellota', cursive;
-  font-size: 16px;
-  background: url(../img/botanical-green.jpg);
+  background: url(../img/Initial-Background.jpg);
   background-size: cover;
-  height: 100%;
+  background-repeat: no-repeat;
+  background-position: top center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
   
 }
 
-.jumbotron {
-  /* text-align: center; */
-  background-color: transparent;
-  color: tan;
-  border-bottom:  2px solid;
-  border-color: grey;
-
+/* Nav bar */
+nav {
+  background: transparent;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 10px 10px 30px 10px;
+  font-family: 'MuseoModerno', cursive;
 }
 
-/* Input-group time blocks */
-.input-group {
-  margin-bottom: 10px;
+/* Search City Section */
+#searchControl {
+  width: 80%;
+  border: none;
+  outline: none;
+  background-color: rgba(255, 255, 255, 0.4);
+  border-radius: 0px 16px 0px 16px;
+  border-bottom: 3px solid silver;
+  transition: 0.2s ease-out;
 }
 
-.input-group-text {
-  background-color: black;
-  color: whitesmoke;
+#searchControl:focus {
+  background-color: rgba(255, 255, 255, 0.8);
 }
 
-.paddingFix {
-  padding-right: 20px;
+#searchHistory {
+  width: 80%;
+  padding-top: 10px;
 }
 
-.form-control {
-  cursor: pointer;
+/* Main Weather Content */
+.MWC {
+  background: rgba(97, 97, 97, 0.534);
+  border-style: ridge;
+  border-color: silver;
 }
 
-/* modal style */
-.modal-content {
-  background-color: lightgray;
+#temperature {
+  color: white;
+  font-size: 40px;
+  text-align: left;
+  text-shadow: 2px 2px 5px black;
+  font-family: 'Josefin Sans', sans-serif;
 }
 
-#taskInput {
-  border-radius: 5px;
-  display: inherit;
-  background-color: dimgray;
-  color: tan;
-  width: 100%;
+#weatherIcon {
+  width: 100px;
+  height: 100px;
+  margin-top: 25px;
+  margin-left: 20px;
 }
 
+.wdStats {
+  padding-top: 50px;
+}
+
+#location, #date, #humidity, #windSpeed, #uvIndex {
+  color: white;
+}
+
+#forecastBtn {
+  float: right;
+}
+
+/* 5 Day Forecast Section */
+#forecastBody {
+  margin-top: 70px;
+  background: rgba(97, 97, 97, 0.534);
+  border-style: ridge;
+  border-color: silver;  
+
+  /* visibility: hidden; */
+}
+
+  /* Weather Icon */
+  .mr-3{
+    width: 100px;
+    height: 100px;
+  }
+
+.date5, .temperature5, .humidity5 {
+  color: white;
+}

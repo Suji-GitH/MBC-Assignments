@@ -123,7 +123,7 @@ function getCityWeather() {
   //Put in apiKey here
   var apiKey = "89f2f90bb941f9ca5faa038d05d25bdb";
 
-  var queryURL = "http://api.openweathermap.org/data/2.5/forecast?q=" + city + "&units=metric&appid=" + apiKey + "&cnt=5";
+  var queryURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&units=metric&appid=" + apiKey + "&cnt=5";
 
   $.ajax({
     url: queryURL,
@@ -133,7 +133,7 @@ function getCityWeather() {
     //shorten form for accessing api object 
     var weatherDataList = weatherData.list[0];
     //Url for weather Icon
-    var weatherIconUrl = ("http://openweathermap.org/img/wn/" + weatherDataList.weather[0].icon + "@2x.png");
+    var weatherIconUrl = ("https://openweathermap.org/img/wn/" + weatherDataList.weather[0].icon + "@2x.png");
 
     //Switch background to weather condition 
     switch (weatherDataList.weather[0].main) {
@@ -167,7 +167,7 @@ function getCityWeather() {
     var lon = weatherData.city.coord.lon;
 
     //url for UV api
-    var uvQueryUrl = "http://api.openweathermap.org/data/2.5/uvi?appid=" + apiKey + "&lat=" + lat + "&lon=" + lon;
+    var uvQueryUrl = "https://api.openweathermap.org/data/2.5/uvi?appid=" + apiKey + "&lat=" + lat + "&lon=" + lon;
 
     //api call get UV index
     $.ajax({
@@ -192,7 +192,7 @@ function getCityWeather() {
 
       var date5 = currentMoment.add(i, "days").format("dddd, MMM Do");
       var weatherDataList5 = weatherData.list[i];
-      var weatherIconUrl5 = ("http://openweathermap.org/img/wn/" + weatherDataList5.weather[0].icon + "@2x.png");
+      var weatherIconUrl5 = ("https://openweathermap.org/img/wn/" + weatherDataList5.weather[0].icon + "@2x.png");
 
       $weatherIcon5.eq(i).attr("src", weatherIconUrl5);
       $date5.eq(i).html(date5);

@@ -1,4 +1,4 @@
-# MBC-unit2
+# MBC-Assignment 
 
 ## Application & Repository Link
 
@@ -12,12 +12,13 @@
 - [UI/UX & Application Screens](#UI/UX&ApplicationScreens)
     - [UI/UX Consideration](#UI/UXConsideration)
     - [App Screenshots](#AppScreenshots)
+- [Installation](#Installation) 
 - [Credits](#Credits)
 - [Testing](#Testing)
 
 ## Overview
 
-AS A traveler
+AS A Globe trotter 
 I WANT to see the weather outlook for multiple cities
 SO THAT I can plan a trip accordingly
 
@@ -43,7 +44,11 @@ THEN I am presented with the last searched city forecast
 
 ###### UI/UXConsideration
 
-
+1. Landing Page displays search bar and Weather details panel with placeholders for weather stats to be displayed. 
+2. 5 day forecast button is placed in the panel where main weather details are displayed so that User has the choice to see the forecast or not. 
+3. Only the 4 recent city searches are displayed under the search bar so there isn't endless amount of cities displayed. 
+4. Searched cities are displayed as button which you can click and view the weather details again. 
+5. Depending on the weather condition the background will change to match the details.
 
 
 ###### AppScreenshots
@@ -66,6 +71,14 @@ Weather App Dashboard - Rendered Weather Details with 5 Day Forecast
 Weather App Dashboard - Mobile View
 <img src = "../Assignment-6/assets/img/ScreenShots/MobileView.jpg">
 
+## Installation
+
+Assumption: Application is available to be used by the public.
+
+1. Sign up to https://openweathermap.org/ and generate an API Key.
+2. After downloading the application file, navigate to script.js file.  
+3. On line 124, paste your API key in between the quotation mark for variable apiKey. 
+
 ## Credits
 
     - Bootstrap
@@ -76,6 +89,23 @@ Weather App Dashboard - Mobile View
     - Font Awesome
 
 ## Testing
+Only tested for business case scenarios.
 
+As a User:
 
+- when I land on the landing page, I am presented with search bad, weather panel with default placeholder, and 5 day forecast hidden. 
+
+- when I press the 5 day forecast without having to search for cities, I am presented with 5 day forecast panel with default placeholder. 
+
+- when I search for a city, a button is added with searched city name under the search bar, which is capped at maximum of 4. 
+
+- when I view the weather Condition details, I am presented with city name, the date, an icon representation of weather conditions, the temperature, the humidity, the wind speed, and the UV index.
+
+- when I view the UV index, it is colour coded to indicates weather conditions are favorable(Green), moderate(Orange), or severe(Red).
+
+- when I view the 5 day forecast weather Condition, I am presented with date, an icon representation of weather conditions, the temperature, and the humidity.
+
+- When I click on the city button, I am presented with corresponding weather condition details. 
+
+- When I re-open the weather dashboard, I am presented with last searched city forecast. 
     

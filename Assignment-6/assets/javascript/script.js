@@ -1,99 +1,204 @@
-    //moment object
-    var moment = moment();
+//jquery variables
+var $searchControl = $("#searchControl");
+var $searchHistory = $("#searchHistory");
+var $searchButton = $("button"); 
+var $forecastBtn = $("#forecastBtn");
+var $forecastBody = $("#forecastBody")
+var $location = $("#location");
+var $date = $("#date");
+var $weatherIcon = $("#weatherIcon");
+var $temperature = $("#temperature");
+var $humidity = $("#humidity");
+var $windSpeed = $("#windSpeed");
+var $uvIndex = $("#uvIndex");
+var $weatherIcon5 = $(".mr-3");
+var $date5 = $(".date5");
+var $temperature5 = $(".temperature5");
+var $humidity5 = $(".humidity5");
 
-    //Display day, month, date, year
-    $("#headerDate").text((moment.format("dddd, MMMM Do YYYY")));
+//City
+var city = "";
 
-    //start time 9am
-    var startTime = 9;
-    //Calculate current time to the hour
-    var currentTime = moment.hour();
-    //duration from start time to current time
-    var timeDiff = currentTime - startTime;
+//Local Storage - Search History Obj
+var searchedCity = [];
 
-    // Clear text Area if past 6pm
-      if (timeDiff > 9) {
-      localStorage.clear()
+//Moment.js time
+var currentMoment = moment(); 
+
+//Initialize the Landing page to default
+initialize();
+
+//initialize the page with Searched city
+function initialize() {
+
+  //hide 5 day forecast
+  $forecastBody.hide();
+
+  //Get search history from local storage
+  var storedCity = JSON.parse(localStorage.getItem("SearchedCity"));
+
+  //If cities were retrieved from localStorage, update the recentlySearchedCitiesArray to it
+  if (storedCity !== null) {
+      searchedCity = storedCity;
+
+    for (var i=0; i < searchedCity.length; i++) {
+
+      var cityButton = $("<button>").attr("type", "button").addClass("btn btn-dark btn-block");
+
+      $searchHistory.prepend(cityButton.html(searchedCity[i]));
+    }
+
+    //Get last city from Array
+    city = searchedCity[searchedCity.length - 1];
+    getCityWeather();
+
+  } 
+};
+
+//Function to add/remove Item to Array
+function pushSearchedCity() {
+
+  if(searchedCity.length === 4){
+
+    var firstArrayItem = searchedCity[0];
+
+    $("button:contains(" + firstArrayItem + ")").remove();
+    
+    searchedCity.shift();
+
+    searchedCity.push($searchControl.val().trim());
+
+  } else
+
+    searchedCity.push($searchControl.val().trim());
+};
+
+//Function to save Item in local Storage
+function storeLookupCity() {
+
+  localStorage.setItem("SearchedCity", JSON.stringify(searchedCity));
+};
+
+//Event Listener for search bar
+$searchControl.on("keypress", function(e){
+  if(e.key === "Enter"){
+
+    if ($searchControl.val() === ""){
+      alert("You must enter a city name");
+    } 
+    else {
+
+      city = $searchControl.val().trim();
+
+      var cityButton = $("<button>").attr("type", "button").addClass("btn btn-dark btn-sm btn-block");
+
+      $searchHistory.prepend(cityButton.html($searchControl.val().trim()));
+      
+      pushSearchedCity();
+      storeLookupCity();
+      getCityWeather();
+    };
+
+    $searchControl.val("");
+  };
+});
+
+//Even Listener for appended city button
+$(document).on("click", ".btn-block", function() {
+
+  city = $(this).html();
+
+  getCityWeather();
+});
+
+//Event Listener for 5 Day Forecast hide/show
+$forecastBtn.on("click", function() {
+
+$forecastBody.toggle();
+});
+
+//API call to Get weather details of the city
+function getCityWeather() {
+
+  var apiKey = "89f2f90bb941f9ca5faa038d05d25bdb";
+
+  var queryURL = "http://api.openweathermap.org/data/2.5/forecast?q=" + city + "&units=metric&appid=" + apiKey + "&cnt=5";
+
+  $.ajax({
+    url: queryURL,
+    method: "GET"
+  }).then(function(weatherData) {
+
+    //shorten form for accessing api object 
+    var weatherDataList = weatherData.list[0];
+    //Url for weather Icon
+    var weatherIconUrl = ("http://openweathermap.org/img/wn/" + weatherDataList.weather[0].icon + "@2x.png");
+
+    //Switch background to weather condition 
+    switch (weatherDataList.weather[0].main) {
+      case "Clear":
+        document.body.style.backgroundImage = 'url("../Assignment-6/assets/img/Clear.jpg")';
+        break;
+      case "Clouds":
+        document.body.style.backgroundImage = 'url("../Assignment-6/assets/img/Clouds.jpg")';
+        break;
+      case "Rain":
+        document.body.style.backgroundImage = 'url("../Assignment-6/assets/img/Rain.jpg")';
+        break;
+      case "Drizzle":
+        document.body.style.backgroundImage = 'url("../Assignment-6/assets/img/Drizzle.jpg")';
+        break;
+      case "Thunderstorm":
+        document.body.style.backgroundImage = 'url("../Assignment-6/assets/img/Thunderstorm.jpg")';
+        break;    
     };
     
-    // past, present, future color coordination
-    $(".form-control").each(function () {
+    //Display main weather Stats
+    $weatherIcon.attr("src", weatherIconUrl);
+    $date.html((weatherDataList.dt_txt).substring(0,10));
+    $location.html(weatherData.city.name);
+    $temperature.html(weatherDataList.main.temp + "°C");
+    $humidity.html(weatherDataList.main.humidity + "%");
+    $windSpeed.html(weatherDataList.wind.speed + "m/s");
 
-      if (timeDiff === ($(this).data("columns"))) {
-        $(this).css("background-color", "palevioletred");
-      } else if (($(this).data("columns")) < timeDiff) {
-        $(this).css("background-color", "lightgrey");
-      } else if (($(this).data("columns")) > timeDiff) {
-        $(this).css("background-color", "darkseagreen");
+    //Lat and long from 
+    var lat = weatherData.city.coord.lat;
+    var lon = weatherData.city.coord.lon;
+
+    //url for UV api
+    var uvQueryUrl = "http://api.openweathermap.org/data/2.5/uvi?appid=89f2f90bb941f9ca5faa038d05d25bdb&lat=" + lat + "&lon=" + lon;
+
+    //api call get UV index
+    $.ajax({
+      url: uvQueryUrl,
+      method: "Get"
+    }).then(function(uvData){
+
+      var uvRating = uvData.value;
+
+      //Colour coding UV value
+      if (uvRating < 5) {
+        $uvIndex.html(uvRating).css("color", "green");
+      } else if (uvRating >= 5 & uvRating <= 7) {
+        $uvIndex.html(uvRating).css("color", "orange");
+      } else if (uvRating > 7) {
+        $uvIndex.html(uvRating).css("color", "red");
       }
-
     });
 
-    //Get tasks from local storage
-    var getUserTasks = JSON.parse(localStorage.getItem("userTasks"));
+    //Display values for 5 day forecast
+    for (var i=0; i < 5; i++) {
 
-    // If local storage is null create time block object
-    if (getUserTasks !== null) {
+      var date5 = currentMoment.add(i, "days").format("dddd, MMM Do");
+      var weatherDataList5 = weatherData.list[i];
+      var weatherIconUrl5 = ("http://openweathermap.org/img/wn/" + weatherDataList5.weather[0].icon + "@2x.png");
 
-      for (var i=0; i < getUserTasks.timeBlocks.length; i++) {
-      $(".form-control").eq(i).html(getUserTasks.timeBlocks[i]);
-      
-      timeBlockTasks = getUserTasks;
-
-      }
-    } else {
-
-      var timeBlockTasks = {
-          timeBlocks: new Array(9)
-      };
-
+      $weatherIcon5.eq(i).attr("src", weatherIconUrl5);
+      $date5.eq(i).html(date5);
+      $temperature5.eq(i).html(weatherDataList5.main.temp + "°C");
+      $humidity5.eq(i).html(weatherDataList5.main.humidity + "%");
     };
+  })
+};
 
-    //Event listener for text area to display Modal
-    $(".form-control").on("click", function () {
-      $('#myModal').modal('show');
 
-      //get block column value
-      var $blockId = $(".form-control").index(this);
-
-      $("#blockId").text($blockId);
-
-    });
-
-    //Save button function 
-    $("#saveButton").on("click", function () {
-
-      var $taskInput = $("#taskInput");
-
-      var blockId = $("#blockId").text();
-
-      //Access Array for time block user input
-      var timeBlockArr = timeBlockTasks.timeBlocks;
-
-      for (var i = 0; i < timeBlockArr.length; i++) {
-
-        if (i == blockId) {
-
-          timeBlockArr[i] = $taskInput.val().trim();
-
-          break;
-        }
-      }
-
-      //stringify user input
-      var timeBlockTasks_serialized = JSON.stringify(timeBlockTasks);
-
-      //save to local storage
-      localStorage.setItem("userTasks", timeBlockTasks_serialized);
-
-      //Display Array value to textarea 
-      var indexValue = timeBlockArr[blockId];
-
-      $(".form-control").eq(blockId).html(indexValue);
-
-      // //clear text
-      $taskInput.val("");
-
-      $('#myModal').modal('hide');
-
-    });

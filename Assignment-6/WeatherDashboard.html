@@ -8,120 +8,221 @@
 
 
   <!-- Favicon reference -->
-  <link rel="icon" type="image/x-icon" href="../Assignment-5/assets/img/Favicon/favicon.ico"/>
+  <link rel="icon" type="image/x-icon" href="../Assignment-6/assets/img/Favicon/favicon.ico" />
   <!--BootStrap style sheet-->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
   <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Bellota:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@500&family=MuseoModerno:wght@600&display=swap"
+    rel="stylesheet">
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"/>
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
   <!-- Own style sheet-->
-  <link rel="stylesheet" href="./assets/css/style.css"/>
+  <link rel="stylesheet" href="./assets/css/style.css" />
 
-  <title>Work Day Scheduler</title>
+  <title>Weather Dashboard</title>
 </head>
 
 <body>
-  <!-- header with title, app description, current day, date and year -->
-  <header class="jumbotron">
-    <h1 class="display-3">Work Day Scheduler</h1>
-    <p id="currentDay" class="lead"></p>
-    <h3 id="headerDate"></h3>
+  <!-- Nav -->
+  <header>
+    <nav>
+      <span class="navbarTitle">Weather Dashboard</span>
+    </nav>
   </header>
 
-  <!-- Time blocks -->
+  <!-- Search + Main content -->
   <div class="container">
-    <!-- 9am -->
-    <div class="input-group">
-      <div class="input-group-prepend">
-        <span class="input-group-text paddingFix">9am</span>
+    <div class="row">
+
+      <!-- Search Section Start-->
+      <div class="col-sm-12 col-lg-3">
+        <!-- Search Control -->
+        <div class="row">
+          <input type="text" id="searchControl" class="form-control" placeholder="Type in City Name"
+            data-toggle="tooltip" data-placement="right" title="Press Enter to Search">
+        </div>
+        <!-- Search History -->
+        <div class="row" id="searchHistory"></div>
       </div>
-      <textarea class="form-control" aria-label="With textarea" data-columns="0" data-toggle="tooltip" title="Click to Add Task"></textarea>
-    </div>
+      <!-- Search Section End-->
 
-    <!-- 10am -->
-    <div class="input-group">
-      <div class="input-group-prepend">
-        <span class="input-group-text">10am</span>
-      </div>
-      <textarea class="form-control" aria-label="With textarea" data-columns="1" data-toggle="tooltip" title="Click to Add Task"></textarea>
-    </div>
+      <!-- Main Weather Content Start -->
+      <div class="MWC col-sm-12 col-lg-9">
+        <div class="row">
 
-    <!-- 11am -->
-    <div class="input-group">
-      <div class="input-group-prepend">
-        <span class="input-group-text">11am</span>
-      </div>
-      <textarea class="form-control" aria-label="With textarea" data-columns="2" data-toggle="tooltip" title="Click to Add Task"></textarea>
-    </div>
+          <!-- Weather Icon -->
+          <div class="col-sm-12 col-lg-3">
+            <div class="weatherIcon">
+              <img id="weatherIcon" src="../Assignment-6/assets/img/default-weather-icon.png">
+            </div>
 
-    <!-- 12pm -->
-    <div class="input-group">
-      <div class="input-group-prepend">
-        <span class="input-group-text">12pm</span>
-      </div>
-      <textarea class="form-control" aria-label="With textarea" data-columns="3" data-toggle="tooltip" title="Click to Add Task"></textarea>
-    </div>
+            <!-- Temperature -->
+            <div class="temperature">
+              <span id="temperature">-</span>
+            </div>
+          </div>
 
-    <!-- 1pm -->
-    <div class="input-group">
-      <div class="input-group-prepend">
-        <span class="input-group-text paddingFix">1pm</span>
-      </div>
-      <textarea class="form-control" aria-label="With textarea" data-columns="4" data-toggle="tooltip" title="Click to Add Task"></textarea>
-    </div>
+          <!-- Location, Date, humidity, Wind Speed, UV Index -->
+          <div class="col-sm-12 col-lg-9 wdStats">
 
-    <!-- 2pm -->
-    <div class="input-group">
-      <div class="input-group-prepend">
-        <span class="input-group-text paddingFix">2pm</span>
-      </div>
-      <textarea class="form-control" aria-label="With textarea" data-columns="5" data-toggle="tooltip" title="Click to Add Task"></textarea>
-    </div>
+            <!-- Location -->
+            <div class="location">
+              <span><i class="fas fa-map-marker-alt"></i></span>
+              <span id="location">-</span>
+            </div>
 
-    <!-- 3pm -->
-    <div class="input-group">
-      <div class="input-group-prepend">
-        <span class="input-group-text paddingFix">3pm</span>
-      </div>
-      <textarea class="form-control" aria-label="With textarea" data-columns="6" data-toggle="tooltip" title="Click to Add Task"></textarea>
-    </div>
+            <!-- Date -->
+            <div class="date">
+              <span><i class="fas fa-calendar-alt"></i></span>
+              <span id="date">-</span>
+            </div>
 
-    <!-- 4pm -->
-    <div class="input-group">
-      <div class="input-group-prepend">
-        <span class="input-group-text paddingFix">4pm</span>
-      </div>
-      <textarea class="form-control" aria-label="With textarea" data-columns="7" data-toggle="tooltip" title="Click to Add Task"></textarea>
-    </div>
+            <!-- Humidity -->
+            <div class="humidity">
+              <span><i class="fas fa-tint"></i></span>
+              <span id="humidity">-</span>
+            </div>
 
-    <!-- 5pm -->
-    <div class="input-group">
-      <div class="input-group-prepend">
-        <span class="input-group-text paddingFix">5pm</span>
-      </div>
-      <textarea class="form-control" aria-label="With textarea" data-columns="8" data-toggle="tooltip" title="Click to Add Task"></textarea>
-    </div>
+            <!-- Wind Speed -->
+            <div class="windSpeed">
+              <span><i class="fas fa-wind"></i></span>
+              <span id="windSpeed">-</span>
+            </div>
 
-  </div>
+            <!-- UV Index -->
+            <div class="uvIndex">
+              <span><i class="fas fa-sun"></i></span>
+              <span id="uvIndex">-</span>
+            </div>
 
-  <!-- Modal for task Input -->
-  <div class="modal" tabindex="-1" role="dialog" id="myModal">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-body">
-          <div class="form-group">
-            <label for="message-text" class="col-form-label">Enter Task:<span id="blockId" hidden></span></label>
-            <textarea id="taskInput"></textarea>
+            <button type="button" class="btn btn-outline-dark" id="forecastBtn">5 Day Forecast</button>
           </div>
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="far fa-window-close"></i> Close</button>
-          <button type="button" id="saveButton" class="btn btn-dark"><i class="far fa-calendar-plus"></i> Add</button>
+      </div>
+      <!-- Main Weather Content End -->
+    </div>
+  </div>
+
+  <!-- 5 day Forecast -->
+  <div class="container" id="forecastBody">
+    <div class="row">
+      <div class="foreCast col">
+        <div class="row">
+          <!-- Day 1 -->
+          <div class="col-sm-12 col-lg">
+            <!-- Weather Icon -->
+            <img src="../Assignment-6/assets/img/default-weather-icon.png" class="mr-3" alt="weather icon day 1">
+            <br>
+            <!-- Date -->
+            <div>
+              <span><i class="fas fa-calendar-alt"></i></span>
+              <span class="date5"></span>
+            </div>
+            <!-- Temperature -->
+            <div>
+              <span><i class="fas fa-thermometer-half"></i></span>
+              <span class="temperature5"></span>
+            </div>
+            <!-- Humidity -->
+            <div>
+              <span><i class="fas fa-tint"></i></span>
+              <span class="humidity5"></span>
+            </div>
+          </div>
+
+          <!-- Day 2 -->
+          <div class="col-sm-12 col-lg">
+            <!-- Weather Icon -->
+            <img src="../Assignment-6/assets/img/default-weather-icon.png" class="mr-3" alt="weather icon day 1">
+            <br>
+            <!-- Date -->
+            <div>
+              <span><i class="fas fa-calendar-alt"></i></span>
+              <span class="date5"></span>
+            </div>
+            <!-- Temperature -->
+            <div>
+              <span><i class="fas fa-thermometer-half"></i></span>
+              <span class="temperature5"></span>
+            </div>
+            <!-- Humidity -->
+            <div>
+              <span><i class="fas fa-tint"></i></span>
+              <span class="humidity5"></span>
+            </div>
+          </div>
+
+          <!-- Day 3 -->
+          <div class="col-sm-12 col-lg">
+            <!-- Weather Icon -->
+            <img src="../Assignment-6/assets/img/default-weather-icon.png" class="mr-3" alt="weather icon day 1">
+            <br>
+            <!-- Date -->
+            <div>
+              <span><i class="fas fa-calendar-alt"></i></span>
+              <span class="date5"></span>
+            </div>
+            <!-- Temperature -->
+            <div>
+              <span><i class="fas fa-thermometer-half"></i></span>
+              <span class="temperature5"></span>
+            </div>
+            <!-- Humidity -->
+            <div>
+              <span><i class="fas fa-tint"></i></span>
+              <span class="humidity5"></span>
+            </div>
+          </div>
+
+          <!-- Day 4 -->
+          <div class="col-sm-12 col-lg">
+            <!-- Weather Icon -->
+            <img src="../Assignment-6/assets/img/default-weather-icon.png" class="mr-3" alt="weather icon day 1">
+            <br>
+            <!-- Date -->
+            <div>
+              <span><i class="fas fa-calendar-alt"></i></span>
+              <span class="date5"></span>
+            </div>
+            <!-- Temperature -->
+            <div>
+              <span><i class="fas fa-thermometer-half"></i></span>
+              <span class="temperature5"></span>
+            </div>
+            <!-- Humidity -->
+            <div>
+              <span><i class="fas fa-tint"></i></span>
+              <span class="humidity5"></span>
+            </div>
+          </div>
+
+          <!-- Day 5 -->
+          <div class="col-sm-12 col-lg">
+            <!-- Weather Icon -->
+            <img src="../Assignment-6/assets/img/default-weather-icon.png" class="mr-3" alt="weather icon day 1">
+            <br>
+            <!-- Date -->
+            <div>
+              <span><i class="fas fa-calendar-alt"></i></span>
+              <span class="date5"></span>
+            </div>
+            <!-- Temperature -->
+            <div>
+              <span><i class="fas fa-thermometer-half"></i></span>
+              <span class="temperature5"></span>
+            </div>
+            <!-- Humidity -->
+            <div>
+              <span><i class="fas fa-tint"></i></span>
+              <span class="humidity5"></span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
+  </div>
+  <!-- 5 day Forecast End -->
 
   <!-- Moment.js script link -->
   <script src="./assets/lib/moment/moment.with-local.js"></script>
@@ -130,7 +231,7 @@
   <!-- Bootstrap script link -->
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
   <!-- Own js script link-->
-  <script src="../Assignment-5/assets/javascript/script.js"></script>
+  <script src="../Assignment-6/assets/javascript/script.js"></script>
 
 </body>
 

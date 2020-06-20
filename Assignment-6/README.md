@@ -44,14 +44,27 @@ THEN I am presented with the last searched city forecast
 ###### UI/UXConsideration
 
 
+
+
 ###### AppScreenshots
 
-Calendar Landing Page
-<img src = "../Assignment-5/assets/img/ScreenShots/Calendar-Landing-Page.jpg">
-Colour coordination for Past(), Present(), Future()
-<img src = "../Assignment-5/assets/img/ScreenShots/Past-Present-Future.jpg">
-Saving times block item
-<img src = "../Assignment-5/assets/img/ScreenShots/Modal-Popup.jpg">
+initial wire frame for the application layout
+<img src = "../Assignment-6/assets/img/ScreenShots/Initial_wireframe.jpg">
+
+Weather App Dashboard - Default State
+<img src = "../Assignment-6/assets/img/ScreenShots/LandingPage.jpg">
+
+Weather App Dashboard - 5 Day Forecast Default
+<img src = "../Assignment-6/assets/img/ScreenShots/LandingPage5.jpg">
+
+Weather App Dashboard - Rendered Weather Details 
+<img src = "../Assignment-6/assets/img/ScreenShots/SearchedView.jpg">
+
+Weather App Dashboard - Rendered Weather Details with 5 Day Forecast
+<img src = "../Assignment-6/assets/img/ScreenShots/SearchedView5.jpg">
+
+Weather App Dashboard - Mobile View
+<img src = "../Assignment-6/assets/img/ScreenShots/MobileView.jpg">
 
 ## Credits
 

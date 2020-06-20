@@ -120,6 +120,7 @@ $forecastBody.toggle();
 //API call to Get weather details of the city
 function getCityWeather() {
 
+  //Put in apiKey here
   var apiKey = "89f2f90bb941f9ca5faa038d05d25bdb";
 
   var queryURL = "http://api.openweathermap.org/data/2.5/forecast?q=" + city + "&units=metric&appid=" + apiKey + "&cnt=5";
@@ -166,7 +167,7 @@ function getCityWeather() {
     var lon = weatherData.city.coord.lon;
 
     //url for UV api
-    var uvQueryUrl = "http://api.openweathermap.org/data/2.5/uvi?appid=89f2f90bb941f9ca5faa038d05d25bdb&lat=" + lat + "&lon=" + lon;
+    var uvQueryUrl = "http://api.openweathermap.org/data/2.5/uvi?appid=" + apiKey + "&lat=" + lat + "&lon=" + lon;
 
     //api call get UV index
     $.ajax({

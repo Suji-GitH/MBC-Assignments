@@ -68,7 +68,7 @@ Weather App Dashboard - Rendered Weather Details
 Weather App Dashboard - Rendered Weather Details with 5 Day Forecast
 <img src = "../Assignment-6/assets/img/ScreenShots/SearchedView5.jpg">
 
-Weather App Dashboard - Mobile View
+Weather App Dashboard - Mobile View <br>
 <img src = "../Assignment-6/assets/img/ScreenShots/MobileView.jpg">
 
 ## Installation
@@ -90,6 +90,8 @@ Assumption: Application is available to be used by the public.
 
 ## Testing
 Only tested for business case scenarios.
+
+As a system, when a wrong city name is entered, alert user to enter valid city name. 
 
 As a User:
 

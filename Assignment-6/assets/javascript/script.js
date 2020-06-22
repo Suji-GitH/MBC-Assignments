@@ -127,7 +127,13 @@ function getCityWeather() {
 
   $.ajax({
     url: queryURL,
-    method: "GET"
+    method: "GET",
+    error: function(){
+      alert("Enter valid City Name");
+      localStorage.clear;
+      searchedCity = [];
+      $searchHistory.empty();
+    }
   }).then(function(weatherData) {
 
     //shorten form for accessing api object 
